@@ -1,4 +1,4 @@
-# Egypt Real Estate Market Analysis
+# Egypt Real Estate  Analysis
 
 ## Why this project?
 I picked the Egyptian real estate market mostly because it's messy and local. No English-first pricing conventions, mixed units, compound values, and a real gap in missing data. It felt like a better test of actual data cleaning skills than another polished tutorial dataset.
