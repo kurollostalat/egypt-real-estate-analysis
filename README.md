@@ -10,10 +10,11 @@ I used the [Egyptian Real Estate Listings](https://www.kaggle.com/datasets/hassa
 - **Key challenges**: mixed units in the size column (sqft and sqm in the same field, split with regex), and the `down_payment` column missing in ~73% of rows. Too much to drop, so I filled it with the mean.
 
 ## Key Insights
-- **Price distribution**: mean price is 16.4M EGP, median is 10.66M EGP. The gap means there's a long tail of high-end listings pulling the average up. Median is the more honest "typical" number here.
+- **Price distribution**: mean price is 20.31M EGP, median is 10.85M EGP. The gap means there's a long tail of high-end listings pulling the average up. Median is the more honest "typical" number here.
 - **Typical unit**: ~3 bedrooms, 3 bathrooms, average size 215 sqm.
 - **Market activity**: 9 property types account for most of the listings; the rest are long-tail niche types.
-- **Size barely correlates with price** (~0 in the correlation matrix). Surprising, since bedrooms (0.47) and bathrooms (0.51) correlate with price far more. My best guess: Pearson correlation is very sensitive to outliers, and both price (up to 840M EGP) and size (up to 9,500 sqm) have a handful of extreme values that could be pulling the coefficient toward zero. Worth re-checking with Spearman or on log-transformed values before trusting this number at face value.
+- **Weak correlations with price overall**: size (0.20), bedrooms (0.18), and bathrooms (0.18) all correlate weakly with price, size slightly more than the other two. Down payment barely correlates with price at all (0.02).
+- **Bedrooms and bathrooms move together**: the strongest relationship in the matrix isn't with price at all, it's between bedrooms and bathrooms (0.83), which makes sense since larger units tend to scale both together.
 
 ## Visualizations
 ![Correlation Matrix](the%20correlation%20between%20the%20columns.png)
@@ -31,7 +32,7 @@ I used the [Egyptian Real Estate Listings](https://www.kaggle.com/datasets/hassa
 ## Future Improvements
 - Apply IQR or Z-score filtering for more robust outlier handling. Right now outliers are only flagged visually via boxplot.
 - Location-aware imputation for missing down payment values instead of a simple mean.
-- Re-check the size–price correlation with Spearman or log-transformed values to see if it's a real weak relationship or an outlier artifact.
+- Re-check price correlations with Spearman or log-transformed values, since the weak Pearson correlations across the board could partly be an artifact of extreme outliers in price and size.
 
 ---
 **Author**: Kurollos Talat · [LinkedIn](https://linkedin.com/in/kurollos-talat-49409520a) · kurollostalat@gmail.com
