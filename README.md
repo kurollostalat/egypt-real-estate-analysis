@@ -1,10 +1,10 @@
 # Egypt Real Estate Market Analysis
 
 ## Why this project?
-I picked the Egyptian real estate market mostly because it's messy and local. No clean Kaggle dataset, no English-first pricing conventions, just raw listings I had to scrape and wrangle myself. It felt like a better test of actual data cleaning skills than another polished tutorial dataset.
+I picked the Egyptian real estate market mostly because it's messy and local. No English-first pricing conventions, mixed units, compound values, and a real gap in missing data. It felt like a better test of actual data cleaning skills than another polished tutorial dataset.
 
 ## The Data
-I scraped and cleaned ~20,000 property listings from PropertyFinder Egypt to practice a full pandas cleaning + EDA workflow on real, messy data.
+I used the [Egyptian Real Estate Listings](https://www.kaggle.com/datasets/hassankhaled21/egyptian-real-estate-listings) dataset from Kaggle (Hassan Khaled21), which contains ~20,000 property listings originally collected from PropertyFinder Egypt. I cleaned it to practice a full pandas cleaning and EDA workflow on real, messy data.
 
 - **Stats**: 19,924 listings going in, 19,917 after cleaning.
 - **Key challenges**: mixed units in the size column (sqft and sqm in the same field, split with regex), and the `down_payment` column missing in ~73% of rows. Too much to drop, so I filled it with the mean.
